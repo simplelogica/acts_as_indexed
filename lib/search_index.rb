@@ -301,7 +301,7 @@ module Foo #:nodoc:
         end
 
         def cleanup_atoms(s, limit_size=false, min_size = @min_word_size || 3)
-          atoms = s.downcase.gsub(/\W/,' ').squeeze(' ').split
+          atoms = s.gsub(/\W/,' ').squeeze(' ').split
           return atoms if !limit_size
           atoms.reject{|w| w.size < min_size}
         end
