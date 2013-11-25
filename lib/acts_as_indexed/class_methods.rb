@@ -115,7 +115,7 @@ module ActsAsIndexed
 
       # Run the query if not already in cache.
       if !@query_cache || !@query_cache[query_with_locale]
-        build_index unless (aai_config.index_file + "/" + I18n.locale.to_s).directory?
+        build_index unless (aai_config.index_file.join(I18n.locale.to_s)).directory?
         (@query_cache ||= {})[query_with_locale] = new_index.search(query)
       end
 
